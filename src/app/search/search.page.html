@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Search by Course No.</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label>Course No.</ion-label>
+    <ion-input
+      placeholder="Enter course no."
+      [(ngModel)]="courseNoInput"
+    ></ion-input>
+  </ion-item>
+
+  <ion-button expand="full" (click)="search()">Search</ion-button>
+
+  <ion-card *ngIf="course$ | async as course">
+    <ion-card-header>
+      <ion-card-title>
+        {{course.course.courseNo}} {{course.course.courseNameEn}}
+      </ion-card-title>
+      <ion-card-subtitle>{{course.course.department}}</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p>
+        {{course.course.credit}} Credit<span *ngIf="course.course.credit > 1"
+          >s</span
+        >
+      </p>
+      <p>{{course.course.creditHours}}</p>
+    </ion-card-content>
+
+    <ion-card-content>
+      <p>Updated on {{course.course.updatedAt | date:'medium'}}</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

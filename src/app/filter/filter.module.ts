@@ -9,12 +9,7 @@ import { FilterPageRoutingModule } from './filter-routing.module';
 import { FilterPage } from './filter.page';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    FilterPageRoutingModule
-  ],
-  declarations: [FilterPage]
+  imports: [CommonModule, FormsModule, IonicModule, FilterPageRoutingModule],
+  declarations: [FilterPage],
 })
 export class FilterPageModule {}

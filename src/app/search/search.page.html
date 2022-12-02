@@ -25,6 +25,15 @@
 
     <ion-card-content>
       <p>
+        {{course.course.totalSeats}} Seat<span
+          *ngIf="course.course.totalSeats > 1"
+          >s</span
+        >
+      </p>
+    </ion-card-content>
+
+    <ion-card-content>
+      <p>
         {{course.course.credit}} Credit<span *ngIf="course.course.credit > 1"
           >s</span
         >

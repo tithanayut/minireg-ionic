@@ -5,7 +5,7 @@ export interface Course {
   course: CourseData;
 }
 
-export interface AllCourses {
+export interface MultipleCourses {
   studyProgram: string;
   semester: string;
   academicYear: string;
@@ -21,5 +21,6 @@ export interface CourseData {
   credit: number;
   creditHours: string;
   genEdType: string;
+  totalSeats: number;
   updatedAt: string;
 }

@@ -1,10 +1,21 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>All Courses</ion-title>
+    <ion-title>Filter by max/min seats</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-item>
+    <ion-label>Min Seats</ion-label>
+    <ion-input placeholder="Enter min seats" [(ngModel)]="minInput"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Max Seats</ion-label>
+    <ion-input placeholder="Enter max seats" [(ngModel)]="maxInput"></ion-input>
+  </ion-item>
+
+  <ion-button expand="full" (click)="search()">Search</ion-button>
+
   <div *ngIf="courses$ | async as courses">
     <ion-card *ngFor="let course of courses.courses">
       <ion-card-header>

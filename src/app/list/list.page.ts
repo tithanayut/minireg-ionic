@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
-import { AllCourses } from '../models/course.model';
+import { MultipleCourses } from '../models/course.model';
 import { CourseProviderService } from '../providers/course-provider.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { CourseProviderService } from '../providers/course-provider.service';
   styleUrls: ['./list.page.scss'],
 })
 export class ListPage {
-  courses$?: Observable<AllCourses>;
+  courses$?: Observable<MultipleCourses>;
 
   constructor(private courseProvider: CourseProviderService) {
     this.courses$ = this.courseProvider.getAllCourses();

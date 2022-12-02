@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { AllCourses, Course } from '../models/course.model';
+import { MultipleCourses, Course } from '../models/course.model';
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +11,7 @@ export class CourseProviderService {
   constructor(private http: HttpClient) {}
 
   getAllCourses() {
-    return this.http.get<AllCourses>(`${this.apiBaseUrl}/courses`, {
+    return this.http.get<MultipleCourses>(`${this.apiBaseUrl}/courses`, {
       headers: {
         'ngrok-skip-browser-warning': '^_^',
       },
@@ -24,5 +24,16 @@ export class CourseProviderService {
         'ngrok-skip-browser-warning': '^_^',
       },
     });
+  }
+
+  getCourseByTotalSeats(min: number, max: number) {
+    return this.http.get<MultipleCourses>(
+      `${this.apiBaseUrl}/courses?minSeats=${min}&maxSeats=${max}`,
+      {
+        headers: {
+          'ngrok-skip-browser-warning': '^_^',
+        },
+      }
+    );
   }
 }
